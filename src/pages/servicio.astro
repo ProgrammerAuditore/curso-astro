@@ -1,5 +1,5 @@
 ---
-
+const title = "Página de servicio";
 ---
 
 <html lang="es">
@@ -8,9 +8,23 @@
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Página de servicio</title>
+		<title>{title}</title>
 	</head>
 	<body>
-		<h1>Página de servicio</h1>
+		<h1 class="title">{title}</h1>
 	</body>
 </html>
+
+<script>
+	console.log('Este es mi proyecto de astro.');
+</script>
+
+<style>
+	.title 
+	{
+		color: #ccc;
+		background-color: #000;
+		border-radius: 5px;
+		padding: 10px;
+	}
+</style>
