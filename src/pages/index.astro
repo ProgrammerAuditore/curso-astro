@@ -1,25 +1,17 @@
 ---
+import Base from "../layouts/base.astro";
 const empresas  = ['Google', 'Facebook', 'Amazon', 'X.com'];
 const auth_active = true;
 ---
 
-<html lang="es">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Hola mundo</h1>
-		<ul>
-			{ empresas.map( (empresa) => <li>{empresa}</li>) }
-		</ul>
-		
-		<br/>
-		
-		<b>{  auth_active && 'Usuario con acceso al sistema.' }</b>
-		<b>{ !auth_active && 'Usuario sin acceso.' }</b>
-	</body>
-</html>
+<Base pageTitle="Página de Inicio" pageDescription="Página principal">
+	<h1>Hola mundo</h1>
+	<ul>
+		{ empresas.map( (empresa) => <li>{empresa}</li>) }
+	</ul>
+	
+	<br/>
+	
+	<b>{  auth_active && 'Usuario con acceso al sistema.' }</b>
+	<b>{ !auth_active && 'Usuario sin acceso.' }</b>
+</Base>

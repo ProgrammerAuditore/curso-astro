@@ -1,30 +1,22 @@
 ---
+import Base from "../layouts/base.astro";
 const title = "Página de servicio";
 ---
 
-<html lang="es">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body>
-		<h1 class="title">{title}</h1>
-	</body>
-</html>
-
-<script>
-	console.log('Este es mi proyecto de astro.');
-</script>
-
-<style>
-	.title 
-	{
-		color: #ccc;
-		background-color: #000;
-		border-radius: 5px;
-		padding: 10px;
-	}
-</style>
+<Base pageTitle="¿Que ofrecemos?" pageDescription="Nostros ofrecemos software, sistemas de alta calidad y eficientes con las últimas técnologias en el mundo.">
+	<h1 class="title">{title}</h1>
+	
+	<script>
+		console.log('Este es mi proyecto de astro.');
+	</script>
+	
+	<style>
+		.title 
+		{
+			color: #ccc;
+			background-color: #000;
+			border-radius: 5px;
+			padding: 10px;
+		}
+	</style>
+</Base>

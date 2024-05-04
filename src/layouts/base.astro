@@ -1,0 +1,21 @@
+---
+interface Props 
+{
+    pageTitle?: string, 
+    pageDescription?: string, 
+}
+
+const { pageTitle, pageDescription } = Astro.props;
+---
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" />
+        <meta name="generator" content={pageDescription ? pageDescription : Astro.generator} />
+        <title>Curso Astro  {pageTitle ? " | " + pageTitle : null }</title>
+    </head>
+    <body>
+        <slot></slot>
+    </body>
+</html>

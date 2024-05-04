@@ -1,18 +1,10 @@
 --- 
+import Base from "../layouts/base.astro";
 import TarjetaDeInformacion from "../components/tarjeta-de-informacion.astro";
 const usuario_fetch = await fetch('https://jsonplaceholder.typicode.com/users');
 const usuarios = await usuario_fetch.json(); 
 --- 
 
-<html lang="es">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Usuarios</title>
-	</head>
-	<body>
-        { usuarios.map(item_usuario => <TarjetaDeInformacion usuario={item_usuario} />) }
-	</body>
-</html>
+<Base pageTitle="¿Que usuarios tenemos?" pageDescription="Estos son nuestros usuarios y clientes satisfechos por nuestro trabajo, y como a cambia sus vidas con nuestros sistemas y software.">
+	{ usuarios.map(item_usuario => <TarjetaDeInformacion usuario={item_usuario} />) }
+</Base>
