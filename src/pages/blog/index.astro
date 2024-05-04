@@ -1,0 +1,34 @@
+---
+import Base from "../../layouts/base.astro";
+
+
+interface Frontmatter {
+  pageTitle: string;
+  pageDescription?: string;
+}
+
+const publicaciones_fetch = await Astro.glob<Frontmatter>('./publicaciones/*.md');
+---
+
+<Base pageTitle="¿Que son nuestros publicaciones?" pageDescription="Nuestros publicaciones son actividades realizas por parte de nuestro comunidad de nuestra empresa.">
+    <h1>Blog</h1>
+
+    {
+        publicaciones_fetch.map((post) => (
+            <a href={post.url} class="post" >{post.frontmatter.pageTitle}</a>
+        ))
+    }
+    
+    <style>
+        .post {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .post:hover::before {
+            content: '↪';
+            margin-right: 2px;
+            display: inline-block;
+        }
+    </style>
+</Base>
