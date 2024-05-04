@@ -1,5 +1,6 @@
 ---
-
+const empresas  = ['Google', 'Facebook', 'Amazon', 'X.com'];
+const auth_active = true;
 ---
 
 <html lang="es">
@@ -12,5 +13,13 @@
 	</head>
 	<body>
 		<h1>Hola mundo</h1>
+		<ul>
+			{ empresas.map( (empresa) => <li>{empresa}</li>) }
+		</ul>
+		
+		<br/>
+		
+		<b>{  auth_active && 'Usuario con acceso al sistema.' }</b>
+		<b>{ !auth_active && 'Usuario sin acceso.' }</b>
 	</body>
 </html>
