@@ -1,0 +1,53 @@
+---
+interface  Prop {
+    usuario?: object, 
+};
+
+const { usuario } = Astro.props;
+---
+
+<div>
+    <h4 class="name">{usuario.name}<small><sub class="username">({usuario.username})</sub></small></h4>
+    <fieldset>
+        <legend>Information</legend>
+        <label for="street">Street:</label>
+        <input type="text" value={usuario.address.street} name="street" readonly />
+        <label for="city">City:</label>
+        <input type="text" value={usuario.address.city} name="city" readonly />
+        <label for="suite">Suite:</label>
+        <input type="text" value={usuario.address.suite} name="suite" readonly />
+        <label for="zipcode">Zipcode:</label>
+        <input type="text" value={usuario.address.zipcode} name="zipcode" readonly />
+    </fieldset>
+</div>
+
+<style>
+    .name {
+        background-color: black;
+        color: white;
+        display: inline-block;
+        padding: 10px;
+        margin: 3px;
+        border-radius: 10px;
+    }
+
+    .username {
+        background-color: rgb(14, 178, 137);
+        padding: 5px;
+        border-radius: 4px;
+        margin: 0px 4px;
+        color: black;
+    }
+
+    fieldset label {
+        font-weight: 700;
+    }
+
+    fieldset input {
+        border: 0px;
+        background-color: rgb(235, 235, 235);
+        padding: 4px;
+        border-radius: 4px;
+    }
+
+</style>

@@ -1,4 +1,5 @@
 --- 
+import TarjetaDeInformacion from "../components/tarjeta-de-informacion.astro";
 const usuario_fetch = await fetch('https://jsonplaceholder.typicode.com/users');
 const usuarios = await usuario_fetch.json(); 
 --- 
@@ -12,51 +13,6 @@ const usuarios = await usuario_fetch.json();
 		<title>Usuarios</title>
 	</head>
 	<body>
-        { usuarios.map( usuario => 
-        (<div>
-            <h4 class="name">{usuario.name}<small><sub class="username">({usuario.username})</sub></small></h4>
-            <fieldset>
-                <legend>Information</legend>
-                <label for="street">Street:</label>
-                <input type="text" value={usuario.address.street} name="street" readonly />
-                <label for="city">City:</label>
-                <input type="text" value={usuario.address.city} name="city" readonly />
-                <label for="suite">Suite:</label>
-                <input type="text" value={usuario.address.suite} name="suite" readonly />
-                <label for="zipcode">Zipcode:</label>
-                <input type="text" value={usuario.address.zipcode} name="zipcode" readonly />
-            </fieldset>
-        </div>) ) }
+        { usuarios.map(item_usuario => <TarjetaDeInformacion usuario={item_usuario} />) }
 	</body>
 </html>
-
-<style>
-    .name {
-        background-color: black;
-        color: white;
-        display: inline-block;
-        padding: 10px;
-        margin: 3px;
-        border-radius: 10px;
-    }
-
-    .username {
-        background-color: rgb(14, 178, 137);
-        padding: 5px;
-        border-radius: 4px;
-        margin: 0px 4px;
-        color: black;
-    }
-
-    fieldset label {
-        font-weight: 700;
-    }
-
-    fieldset input {
-        border: 0px;
-        background-color: rgb(235, 235, 235);
-        padding: 4px;
-        border-radius: 4px;
-    }
-
-</style>
